@@ -27,8 +27,19 @@ const findWell = (yourArray) => {
   return 0;
 }
 
+const findLake = (yourArray) => {
+  let answer = 0;
+  for (i=0; i<yourArray.length; i++) {
+    let subArray = [yourArray[i-1], yourArray[i], yourArray[i+1]]
+    answer = answer + findWell(subArray);
+    }
+  return answer;
+}
+
 let test1 = [2,0,2]
-console.log(findWell(test1))
+let test2 = [3, 0, 1, 3, 0, 5]
+console.log(findLake(test1))
+console.log(findLake(test2))
 
 $(document).ready(function() {
 
@@ -38,7 +49,7 @@ $(document).ready(function() {
 
   console.log(input1)
 
-  $('#output-section-1').text(1);
+  $('#output-section-1').text(findLake(input1));
   })
 
 });
