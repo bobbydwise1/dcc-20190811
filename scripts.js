@@ -20,22 +20,14 @@ const findWell = (yourArray) => {
   let left = yourArray[0];
   let center = yourArray[1];
   let right = yourArray[2];
-  switch (center) {
-    case ((left > center) && (center < right)):
-    if (left === right) {return left}
-    else if (left < right) {return left}
-    else {return right}
-    break;
-    case ((left > center) || (center < right)):
-    return 0;
-    break;
-    default:
-    console.log('made it to default')
-    break;
+  if ((left > center) && (center < right)) {
+    if (left >= right) {return left-center}
+    else {return right-center}
   }
+  return 0;
 }
 
-let test1 = [2,1,2]
+let test1 = [2,0,2]
 console.log(findWell(test1))
 
 $(document).ready(function() {
