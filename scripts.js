@@ -46,10 +46,11 @@ $(document).ready(function() {
   $('#form1').submit(function(event) {
   event.preventDefault();
   let input1 = $('#input1').val();
+  let transArray = $.parseJSON(input1)
 
   console.log(input1)
 
-  $('#output-section-1').text(findLake(input1));
+  $('#output-section-1').text(findLake(transArray));
   })
 
 });
